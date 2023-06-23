@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <button id="button">Button</button>
+        <label id="label">Connect MetaMask</label>
+
+        <script>
+            let button = document.getElementById("button");
+            let label = document.getElementById("label");
+
+            button.addEventListener("click", function () {
+                window.ethereum.enable().then(function(accounts) {
+                    label.textContent = (`Logged in as ${accounts[0]}`);
+                }).catch(function(error) {
+                    label.textContent = (`Failed to connect to MetaMask\n   ${error}`);
+                });
+            });
+        </script>
+    </body>
+</html>
